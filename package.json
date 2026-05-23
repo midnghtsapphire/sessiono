@@ -1,0 +1,24 @@
+{
+  "name": "sessiono",
+  "version": "1.0.0",
+  "description": "Sessiono — hybrid live AI accompaniment and session-musician platform",
+  "scripts": {
+    "test": "node scripts/test-baseline.js",
+    "build": "node scripts/build-baseline.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midnghtsapphire/sessiono.git"
+  },
+  "keywords": [
+    "music",
+    "ai",
+    "session-musicians"
+  ],
+  "author": "Audrey Evans (@midnghtsapphire)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/midnghtsapphire/sessiono/issues"
+  },
+  "homepage": "https://github.com/midnghtsapphire/sessiono#readme"
+}

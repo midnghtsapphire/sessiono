@@ -4,6 +4,19 @@ Sessiono is a hybrid session-musician and live AI accompaniment platform for art
 
 This repository is now aligned to **revvel-standards** for project planning and production readiness.
 
+## S2M / Revvel-Standards status
+
+Sessiono has the revvel-standards baseline required for a documentation-first product repository.
+
+- README: present
+- CHANGELOG: present
+- DEPLOYMENT_GUIDE: present
+- GO_TO_MARKET: present
+- BRAND_GUIDELINES: present
+- SECURITY: present
+- package.json: present
+- baseline scripts: present (`scripts/test-baseline.js`, `scripts/build-baseline.js`)
+
 ## Current project status
 
 Sessiono is in planning + foundation mode. This repo currently focuses on product definition, launch planning, security posture, and deployment readiness docs before implementation.
@@ -21,6 +34,21 @@ Sessiono is in planning + foundation mode. This repo currently focuses on produc
 - **Value:** Sessiono shortens the gap between idea and finished arrangement by pairing instant AI accompaniment with higher-trust human session talent.
 - **Goal priority:** The highest-priority workflow is helping a creator go from rough demo to usable piano/guitar accompaniment in one session.
 - **Portfolio fit:** It complements `revvel-music-studio` by focusing on collaborative creation and hiring, while that repo focuses on production tooling.
+
+## Current use
+
+Use this repository today as the canonical planning, launch, and operating baseline for Sessiono:
+
+- product framing and implementation sequencing for the live AI accompaniment workflow
+- sourced market research and revenue planning for launch readiness
+- deployment, security, and brand guidance for the eventual website and application surface
+
+## Website in Test (Vercel)
+
+- Status: Not deployed yet
+- Target platform: Vercel
+- Deployment automation reference: see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+- URL: documented gap until the first testable UI is scaffolded and deployed
 
 ## Repository research used for direction
 
@@ -40,6 +68,9 @@ To satisfy the request to look across related music repositories, these public r
 - [x] `GO_TO_MARKET.md` (with sources)
 - [x] `BRAND_GUIDELINES.md`
 - [x] `SECURITY.md`
+- [x] `package.json` (`npm test` + `npm run build`)
+- [x] `scripts/test-baseline.js`
+- [x] `scripts/build-baseline.js`
 
 ## Next build steps
 
@@ -52,3 +83,14 @@ To satisfy the request to look across related music repositories, these public r
 ## License
 
 TBD by project owner.
+
+## Test
+
+Run baseline repository tooling commands:
+
+```bash
+npm test
+npm run build
+```
+
+These commands validate the revvel-standards baseline, including required documentation, Website in Test traceability, and sourced market research coverage.

@@ -68,6 +68,12 @@ Sessiono provides a music-specific workflow: brief-based AI accompaniment genera
 - Dispute rate per 100 projects
 - AI draft-to-human conversion rate
 
+## Revenue outlook
+
+- **Year 1:** Validate demand with concierge workflows and target early five-figure monthly GSV from hybrid AI-plus-human projects.
+- **Year 2:** Expand repeat creator teams, raise conversion from AI drafts into paid collaborator bookings, and target low seven-figure annual GSV.
+- **Year 3:** Use marketplace liquidity plus premium AI accompaniment subscriptions to support a path toward the broader ten-million-in-three-years ambition across the portfolio.
+
 ## Sources
 
 1. IFPI, *Global recorded music revenues grew 4.8% in 2024*  

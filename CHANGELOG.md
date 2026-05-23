@@ -13,3 +13,5 @@ All notable changes to this project will be documented in this file.
 - Reframed Sessiono as a hybrid human + live AI accompaniment platform
 - Added repo analysis tying Sessiono to related music repositories
 - Extended go-to-market, deployment, branding, and security docs for AI piano/guitar session-agent workflows
+- Added revvel-standards baseline npm manifest and validation scripts
+- Documented current-use, Website in Test, and revenue outlook expectations

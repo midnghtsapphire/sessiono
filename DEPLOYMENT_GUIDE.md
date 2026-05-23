@@ -43,6 +43,7 @@ This guide defines the recommended production deployment path for Sessiono.
 5. Smoke test core flow (brief -> hire -> deliver)
 6. Smoke test AI accompaniment flow (brief -> generate piano/guitar idea -> export stems/MIDI)
 7. Promote to production
+8. Record or update the `Website in Test (Vercel)` reference in `README.md`
 
 ## 5) Post-deploy checks
 
