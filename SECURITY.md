@@ -26,3 +26,5 @@ Include:
 - Least-privilege service credentials
 - Encrypted transport (HTTPS) in all environments
 - Access logging for sensitive operations
+- Rights provenance for AI-generated or AI-assisted musical outputs
+- Prompt/upload moderation to reduce impersonation, copyright, and abuse risks

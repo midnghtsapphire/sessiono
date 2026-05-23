@@ -7,6 +7,7 @@ This guide defines the recommended production deployment path for Sessiono.
 - Frontend/API: containerized web app (recommended: Next.js full-stack or equivalent)
 - Database: managed PostgreSQL
 - Object storage: audio stems, mixes, references, exports
+- AI orchestration worker: routes accompaniment requests to model providers and rendering jobs
 - Queue/worker: async jobs for audio processing and notifications
 - CDN: static assets and file delivery acceleration
 
@@ -21,6 +22,8 @@ This guide defines the recommended production deployment path for Sessiono.
 - `PAYMENTS_PROVIDER_KEY`
 - `AUTH_PROVIDER_SECRET`
 - `SESSION_SECRET`
+- `AI_MODEL_PROVIDER_KEY`
+- `AI_AGENT_POLICY_VERSION`
 
 ## 3) Security baseline
 
@@ -29,6 +32,7 @@ This guide defines the recommended production deployment path for Sessiono.
 - Use signed URLs for private file downloads
 - Principle of least privilege for storage/database credentials
 - Enable audit logging for payment and file access events
+- Store prompt, generation, and export provenance for copyright/licensing review
 
 ## 4) CI/CD deployment flow
 
@@ -37,12 +41,14 @@ This guide defines the recommended production deployment path for Sessiono.
 3. Run DB migrations
 4. Deploy to staging
 5. Smoke test core flow (brief -> hire -> deliver)
-6. Promote to production
+6. Smoke test AI accompaniment flow (brief -> generate piano/guitar idea -> export stems/MIDI)
+7. Promote to production
 
 ## 5) Post-deploy checks
 
 - Auth sign-in and session persistence works
 - New project brief creation works
+- AI accompaniment generation works and exports expected assets
 - File upload/download works
 - Payment milestone creation succeeds
 - Alerts/monitoring healthy (error rate, latency, queue depth)
