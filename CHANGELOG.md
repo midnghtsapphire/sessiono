@@ -16,3 +16,4 @@ All notable changes to this project will be documented in this file.
 - Extended go-to-market, deployment, branding, and security docs for AI piano/guitar session-agent workflows
 - Added revvel-standards baseline npm manifest and validation scripts
 - Documented current-use, Website in Test, and revenue outlook expectations
+- Added enforceable Jules workflow and normal-process gate requirements to the S2M research engine baseline

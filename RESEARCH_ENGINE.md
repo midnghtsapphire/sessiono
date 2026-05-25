@@ -4,6 +4,22 @@
 
 Deliver a one-iteration, ship-to-market website and product surface backed by explicit research synthesis and implementation-ready suggestions.
 
+## Jules research engine workflow (revvel-standards)
+
+To pass the normal revvel-standards process for S2M work, this research artifact is completed in the following order:
+
+1. Intake the issue/PR scope and extract explicit deliverables (research, assets, artifacts, website scope).
+2. Run cross-repository and market research to collect references and implementation comparables.
+3. Synthesize findings into prioritized suggestions and one-iteration ship criteria.
+4. Map outputs to required companion artifacts (`GO_TO_MARKET.md`, `WEBSITE_ASSETS.md`, `WEBSITE_ARTIFACTS.md`).
+5. Verify baseline checks (`npm test`, `npm run build`) before merge.
+
+## Completion criteria (normal process gate)
+
+- Every S2M PR includes research engines, prioritized suggestions, assets inventory, and artifacts register.
+- Website-in-Test traceability stays documented in `README.md` and deployment flow remains Vercel-oriented.
+- Baseline scripts enforce required files and process markers so incomplete merges fail early.
+
 ## Engine 1: Market and demand intelligence
 
 - Benchmark creator-service marketplaces (SoundBetter, AirGigs, Fiverr) for category structure, trust signals, and conversion paths.

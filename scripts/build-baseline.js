@@ -33,6 +33,16 @@ if (!deploymentGuide.includes("Vercel")) {
   throw new Error("Baseline build failed. DEPLOYMENT_GUIDE.md must reference Vercel for Website in Test traceability.");
 }
 
+const researchEngine = fs.readFileSync(path.join(root, "RESEARCH_ENGINE.md"), "utf8");
+if (
+  !researchEngine.includes("## Jules research engine workflow (revvel-standards)") ||
+  !researchEngine.includes("## Completion criteria (normal process gate)")
+) {
+  throw new Error(
+    "Baseline build failed. RESEARCH_ENGINE.md must include Jules workflow and normal process completion criteria sections."
+  );
+}
+
 console.log("Baseline build passed.");
 for (const summary of summaries) {
   console.log(`- ${summary}`);

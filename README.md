@@ -71,6 +71,11 @@ To satisfy the request to look across related music repositories, these public r
 - [WEBSITE_ASSETS.md](./WEBSITE_ASSETS.md): full website asset inventory for product, growth, and trust surfaces
 - [WEBSITE_ARTIFACTS.md](./WEBSITE_ARTIFACTS.md): complete artifact register for architecture, UX, data, API, QA, and launch operations
 
+### Revvel normal-process coverage
+
+- Research engine now includes a documented **Jules workflow** sequence and **normal process completion gate**.
+- Baseline scripts enforce those sections so incomplete S2M merges fail validation.
+
 ## Revvel-standards checklist
 
 - [x] `README.md`

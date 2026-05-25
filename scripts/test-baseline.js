@@ -29,6 +29,7 @@ if (missing.length > 0) {
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 const goToMarket = fs.readFileSync(path.join(root, "GO_TO_MARKET.md"), "utf8");
+const researchEngine = fs.readFileSync(path.join(root, "RESEARCH_ENGINE.md"), "utf8");
 
 if (!readme.includes("Website in Test (Vercel)")) {
   console.error("Baseline test failed. README.md must include a Website in Test (Vercel) section.");
@@ -42,6 +43,16 @@ if (!readme.includes("npm test") || !readme.includes("npm run build")) {
 
 if (!goToMarket.includes("## Sources")) {
   console.error("Baseline test failed. GO_TO_MARKET.md must include sourced research.");
+  process.exit(1);
+}
+
+if (
+  !researchEngine.includes("## Jules research engine workflow (revvel-standards)") ||
+  !researchEngine.includes("## Completion criteria (normal process gate)")
+) {
+  console.error(
+    "Baseline test failed. RESEARCH_ENGINE.md must include Jules workflow and normal process completion criteria sections."
+  );
   process.exit(1);
 }
 
