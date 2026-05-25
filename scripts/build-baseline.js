@@ -9,6 +9,9 @@ const filesToCheck = [
   "GO_TO_MARKET.md",
   "BRAND_GUIDELINES.md",
   "SECURITY.md",
+  "RESEARCH_ENGINE.md",
+  "WEBSITE_ASSETS.md",
+  "WEBSITE_ARTIFACTS.md",
 ];
 
 const summaries = filesToCheck.map((file) => {

@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Revvel-standards documentation baseline for Sessiono
 - Product MVP direction and implementation roadmap in README
 - Deployment, security, branding, and go-to-market planning docs
+- S2M one-iteration documentation set for research engines, website assets inventory, and website artifacts register
 
 ### Changed
 - Reframed Sessiono as a hybrid human + live AI accompaniment platform
