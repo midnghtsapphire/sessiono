@@ -14,12 +14,17 @@ Sessiono has the revvel-standards baseline required for a documentation-first pr
 - GO_TO_MARKET: present
 - BRAND_GUIDELINES: present
 - SECURITY: present
+- RESEARCH_ENGINE: present
+- WEBSITE_ASSETS: present
+- WEBSITE_ARTIFACTS: present
 - package.json: present
 - baseline scripts: present (`scripts/test-baseline.js`, `scripts/build-baseline.js`)
 
 ## Current project status
 
 Sessiono is in planning + foundation mode. This repo currently focuses on product definition, launch planning, security posture, and deployment readiness docs before implementation.
+
+For S2M one-iteration readiness, the repository now also includes explicit research-engine outputs plus website assets/artifacts inventories to guide a full front-to-back build.
 
 ## Product direction (MVP)
 
@@ -60,6 +65,17 @@ To satisfy the request to look across related music repositories, these public r
 - `midnghtsapphire/Music-Videos` for downstream promotional content needs
 - `midnghtsapphire/revvel-standards` for documentation and launch-readiness expectations
 
+## S2M one-iteration website package
+
+- [RESEARCH_ENGINE.md](./RESEARCH_ENGINE.md): research engines, synthesis, and prioritized implementation suggestions
+- [WEBSITE_ASSETS.md](./WEBSITE_ASSETS.md): full website asset inventory for product, growth, and trust surfaces
+- [WEBSITE_ARTIFACTS.md](./WEBSITE_ARTIFACTS.md): complete artifact register for architecture, UX, data, API, QA, and launch operations
+
+### Revvel normal-process coverage
+
+- Research engine now includes a documented **Jules workflow** sequence and **normal process completion gate**.
+- Baseline scripts enforce those sections so incomplete S2M merges fail validation.
+
 ## Revvel-standards checklist
 
 - [x] `README.md`
@@ -68,6 +84,9 @@ To satisfy the request to look across related music repositories, these public r
 - [x] `GO_TO_MARKET.md` (with sources)
 - [x] `BRAND_GUIDELINES.md`
 - [x] `SECURITY.md`
+- [x] `RESEARCH_ENGINE.md`
+- [x] `WEBSITE_ASSETS.md`
+- [x] `WEBSITE_ARTIFACTS.md`
 - [x] `package.json` (`npm test` + `npm run build`)
 - [x] `scripts/test-baseline.js`
 - [x] `scripts/build-baseline.js`
