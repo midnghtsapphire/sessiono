@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessiono — AI Music Collaboration Platform</title>
+  <meta name="description" content="Hybrid session-musician and live AI accompaniment platform for artists, producers, and vocalists who need songs finished faster. Get AI-generated piano, guitar, pad, and bass parts instantly.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23667eea'/><path d='M30 70V30l40-10v40M30 70c0 5 4 10 10 10s10-5 10-10M60 60c0 5 4 10 10 10s10-5 10-10' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  
+  <meta property="og:title" content="Sessiono — AI Music Collaboration">
+  <meta property="og:description" content="Your AI Session Band Ready in Minutes. Hybrid session-musician and live AI accompaniment platform.">
+  <meta property="og:type" content="website">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+    }
+    .glow-sm {
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    .wave {
+      animation: wave 1.5s ease-in-out infinite;
+    }
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+  <!-- Floating Music Notes Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-10">
+    <div class="absolute top-20 left-10 text-6xl wave" style="animation-delay: 0s;">♪</div>
+    <div class="absolute top-40 right-20 text-4xl wave" style="animation-delay: 0.3s;">♫</div>
+    <div class="absolute bottom-40 left-1/4 text-5xl wave" style="animation-delay: 0.6s;">♩</div>
+    <div class="absolute top-1/3 right-1/3 text-3xl wave" style="animation-delay: 0.9s;">♪</div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-bold">Sessiono</span>
+      </a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#features" class="text-gray-400 hover:text-white transition font-medium">Features</a>
+        <a href="#how" class="text-gray-400 hover:text-white transition font-medium">How It Works</a>
+        <a href="#pricing" class="text-gray-400 hover:text-white transition font-medium">Pricing</a>
+        <a href="#faq" class="text-gray-400 hover:text-white transition font-medium">FAQ</a>
+      </div>
+      <a href="#waitlist" class="gradient-bg px-6 py-2.5 rounded-full font-semibold hover:opacity-90 transition glow-sm">
+        Join Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-40 pb-24 px-6 relative">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/30 rounded-full px-5 py-2 mb-8 fade-in">
+        <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-sm text-purple-300 font-medium">Launching Soon — Limited Early Access</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight fade-in" style="animation-delay: 0.1s;">
+        Your AI Session Band<br>
+        <span class="gradient-text">Ready in Minutes</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed fade-in" style="animation-delay: 0.2s;">
+        Post a track brief. Get piano, guitar, bass, and pad parts AI-generated instantly. 
+        Refine with session musicians. Finish songs faster than ever.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-5 justify-center fade-in" style="animation-delay: 0.3s;">
+        <a href="#waitlist" class="gradient-bg px-10 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition glow flex items-center justify-center gap-2">
+          <span>Start Creating Free</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+        <a href="#demo" class="border-2 border-gray-700 px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-800/50 hover:border-gray-600 transition flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.654z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>Watch Demo</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-8 mt-12 text-gray-500 text-sm fade-in" style="animation-delay: 0.4s;">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          No credit card required
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          50% off early members
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Cancel anytime
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="py-24 px-6 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">See It In Action</h2>
+        <p class="text-gray-400 text-lg">From rough idea to polished arrangement in minutes</p>
+      </div>
+      <div class="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-2xl">
+        <div class="flex items-center gap-3 px-5 py-4 bg-gray-800/50 border-b border-gray-700/50">
+          <div class="flex gap-2">
+            <div class="w-3.5 h-3.5 rounded-full bg-red-500/80"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3.5 h-3.5 rounded-full bg-green-500/80"></div>
+          </div>
+          <div class="flex-1 mx-4">
+            <div class="bg-gray-700/50 rounded-lg px-4 py-2 text-sm text-gray-400 max-w-lg mx-auto flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              sessiono.app/studio
+            </div>
+          </div>
+        </div>
+        <div class="p-8 md:p-12">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">1</div>
+                <span class="text-sm text-gray-400">Track Brief</span>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Genre</span>
+                  <span class="text-white font-medium">Lo-Fi Hip Hop</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">BPM</span>
+                  <span class="text-white font-medium">85</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Key</span>
+                  <span class="text-white font-medium">C Minor</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Mood</span>
+                  <span class="text-white font-medium">Chill, Melancholic</span>
+                </div>
+              </div>
+              <button class="w-full mt-5 bg-blue-600/20 border border-blue-500/30 py-2.5 rounded-xl font-medium text-blue-400 hover:bg-blue-600/30 transition text-sm">
+                + Add Demo Audio
+              </button>
+            </div>
+            <div class="bg-gray-800/50 rounded-2xl p-6 border border-purple-500/30">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">2</div>
+                <span class="text-sm text-gray-400">AI Generation</span>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600/30 rounded-lg flex items-center justify-center"><span class="text-lg">🎹</span></div>
+                    <div>
+                      <div class="font-medium text-sm">Piano</div>
+                      <div class="text-xs text-gray-500">Lo-fi chords</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1 text-green-400 text-xs">
+                    <span class="wave">▶</span><span>2:34</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-orange-600/30 rounded-lg flex items-center justify-center"><span class="text-lg">🎸</span></div>
+                    <div>
+                      <div class="font-medium text-sm">Guitar</div>
+                      <div class="text-xs text-gray-500">Dusty melody</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1 text-green-400 text-xs">
+                    <span class="wave">▶</span><span>1:58</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-600/30 rounded-lg flex items-center justify-center"><span class="text-lg">🎹</span></div>
+                    <div>
+                      <div class="font-medium text-sm">Pad</div>
+                      <div class="text-xs text-gray-500">Atmospheric</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1 text-green-400 text-xs">
+                    <span class="wave">▶</span><span>3:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 bg-green-500/20 border border-green-500/30 rounded-xl p-3 text-center text-sm text-green-400 font-medium">
+                ✨ All parts generated!
+              </div>
+            </div>
+            <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700/50">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center font-bold">3</div>
+                <span class="text-sm text-gray-400">Export & Ship</span>
+              </div>
+              <div class="space-y-3">
+                <button class="w-full bg-gray-700/50 py-3 rounded-xl text-sm hover:bg-gray-600/50 transition flex items-center justify-between px-4 group">
+                  <span class="flex items-center gap-2"><span>📦</span> Download Stems</span>
+                  <span class="text-gray-500 group-hover:text-gray-300">.zip</span>
+                </button>
+                <button class="w-full bg-gray-700/50 py-3 rounded-xl text-sm hover:bg-gray-600/50 transition flex items-center justify-between px-4 group">
+                  <span class="flex items-center gap-2"><span>🎼</span> Export MIDI</span>
+                  <span class="text-gray-500 group-hover:text-gray-300">.mid</span>
+                </button>
+                <button class="w-full bg-gray-700/50 py-3 rounded-xl text-sm hover:bg-gray-600/50 transition flex items-center justify-between px-4 group">
+                  <span class="flex items-center gap-2"><span>🎧</span> Final Mix</span>
+                  <span class="text-gray-500 group-hover:text-gray-300">.wav</span>
+                </button>
+              </div>
+              <button class="w-full gradient-bg mt-5 py-3 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                Share with Clients
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-purple-400 font-medium tracking-wider uppercase text-sm">Features</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Everything You Need to Finish Songs</h2>
+        <p class="text-gray-400 text-xl max-w-2xl mx-auto">From rough demo to release-ready, all in one platform</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Instant AI Generation</h3>
+          <p class="text-gray-400 leading-relaxed">Get piano, guitar, bass, drums, and pad parts in seconds. AI learns from your brief and generates contextually appropriate accompaniments.</p>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Hybrid AI + Human</h3>
+          <p class="text-gray-400 leading-relaxed">Refine AI parts with real session musicians. Book professionals, get revisions, and layer human performances over AI foundations.</p>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Escrow Payments</h3>
+          <p class="text-gray-400 leading-relaxed">Milestone-based escrow protects both parties. Funds released when you approve the work. No risk, guaranteed satisfaction.</p>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Project Workspace</h3>
+          <p class="text-gray-400 leading-relaxed">Track files, prompts, revisions, stems, and MIDI exports in one place. Never lose a version or miss a deadline again.</p>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">15, 30, 60 Min Sessions</h3>
+          <p class="text-gray-400 leading-relaxed">Token-based plans for every need. Quick polish sessions or full production overhauls. Book by the minute, not the hour.</p>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition group">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Studio Quality Exports</h3>
+          <p class="text-gray-400 leading-relaxed">High-fidelity audio exports. WAV, MP3, and stems for any DAW. Professional grade for professional releases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="py-24 px-6 bg-gray-900/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-purple-400 font-medium tracking-wider uppercase text-sm">Process</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">How It Works</h2>
+        <p class="text-gray-400 text-xl">From idea to finished track in four simple steps</p>
+      </div>
+      <div class="space-y-6">
+        <div class="flex items-start gap-6 bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/20 transition">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">1</div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3">Post Your Track Brief</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">Share genre, BPM, key, references, budget, and instrumentation needs. Upload a demo if you have one. The more detail, the better the AI generation.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6 bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/20 transition">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">2</div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3">AI Generates Options</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">Live AI music agents generate piano, guitar, pad, and accompaniment options from your brief in seconds. Listen, compare, and select your favorites.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6 bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/20 transition">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">3</div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3">Refine with Humans</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">Review AI parts, request changes, or layer session musician performances over AI foundations. Book real musicians for vocals, solos, or final polish.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-6 bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/20 transition">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0">4</div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3">Export & Ship</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">Download stems, MIDI, or final mixes. Export to any DAW. Share with clients or ship directly to streaming platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-purple-400 font-medium tracking-wider uppercase text-sm">Pricing</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Simple, Transparent Pricing</h2>
+        <p class="text-gray-400 text-xl">Pay only for what you use. No subscriptions, no hidden fees.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="text-4xl font-bold">$29</div>
+              <div class="text-gray-500">15 minute session</div>
+            </div>
+            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-2xl">⚡</div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Quick polish & revisions</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI generation included</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Stem & MIDI export</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>2 revision rounds</li>
+          </ul>
+          <a href="#waitlist" class="block text-center bg-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-700 transition">Get Started</a>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border-2 border-purple-500 relative glow">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 gradient-bg px-5 py-2 rounded-full text-sm font-semibold">Most Popular</div>
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="text-4xl font-bold">$59</div>
+              <div class="text-gray-500">30 minute session</div>
+            </div>
+            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-2xl">🎵</div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Full song arrangement</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI + human session option</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Unlimited revisions</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Priority support</li>
+          </ul>
+          <a href="#waitlist" class="block text-center gradient-bg py-3 rounded-xl font-semibold hover:opacity-90 transition">Get Started</a>
+        </div>
+        <div class="bg-gray-900/50 rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/30 transition">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <div class="text-4xl font-bold">$99</div>
+              <div class="text-gray-500">60 minute session</div>
+            </div>
+            <div class="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center text-2xl">🎸</div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Complete production</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI + full band session</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Mix & master included</li>
+            <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Commercial license</li>
+          </ul>
+          <a href="#waitlist" class="block text-center bg-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-700 transition">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6 bg-gray-900/30">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-purple-400 font-medium tracking-wider uppercase text-sm">FAQ</span>
+        <h2 class="text-4xl font-bold mt-4">Questions? Answers.</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-gray-900/50 rounded-2xl border border-gray-800/50 overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-medium hover:bg-gray-800/30 transition">
+            <span>How does the AI generate music parts?</span>
+            <svg class="w-5 h-5 text-gray-400 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-gray-400">Our AI is trained on thousands of hours of session recordings across multiple genres. When you provide a track brief (genre, BPM, key, mood), it generates contextually appropriate accompaniment parts that match the style and feel of your project.</div>
+        </div>
+        <div class="bg-gray-900/50 rounded-2xl border border-gray-800/50 overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-medium hover:bg-gray-800/30 transition">
+            <span>Can I use the AI-generated parts commercially?</span>
+            <svg class="w-5 h-5 text-gray-400 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-gray-400">Yes! With our 30-minute and 60-minute plans, you receive a commercial license that allows you to use the generated parts in released songs, albums, and streaming platforms.</div>
+        </div>
+        <div class="bg-gray-900/50 rounded-2xl border border-gray-800/50 overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-medium hover:bg-gray-800/30 transition">
+            <span>How do I work with real session musicians?</span>
+            <svg class="w-5 h-5 text-gray-400 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-gray-400">Within the platform, you can browse our roster of session musicians, listen to their previous work, and book them directly. Payments are held in escrow and released only when you approve the final deliverable.</div>
+        </div>
+        <div class="bg-gray-900/50 rounded-2xl border border-gray-800/50 overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between font-medium hover:bg-gray-800/30 transition">
+            <span>What file formats do you support?</span>
+            <svg class="w-5 h-5 text-gray-400 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-content hidden px-6 pb-5 text-gray-400">We export in WAV (24-bit, 48kHz), MP3 (320kbps), and MIDI for all major DAWs. Stems are provided as individual tracks (drums, bass, piano, guitar, vocals, etc.) so you can easily import into your project.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist CTA -->
+  <section id="waitlist" class="py-32 px-6 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="w-20 h-20 gradient-bg rounded-3xl flex items-center justify-center mx-auto mb-8 glow">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Join the Waitlist</h2>
+      <p class="text-gray-400 text-xl mb-10">Be first to access Sessiono. Early members get 50% off lifetime.</p>
+      <form id="waitlist-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="handleWaitlist(event)">
+        <input type="email" id="email-input" placeholder="Enter your email" required class="flex-1 bg-gray-800 border border-gray-700 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 text-lg">
+        <button type="submit" class="gradient-bg px-10 py-4 rounded-2xl font-semibold text-lg hover:opacity-90 transition glow-sm shrink-0">Join Waitlist</button>
+      </form>
+      <p class="text-gray-500 text-sm mt-6">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-gray-800/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+          </div>
+          <span class="text-xl font-bold">Sessiono</span>
+        </div>
+        <div class="flex gap-8 text-gray-400">
+          <a href="#" class="hover:text-white transition">Privacy</a>
+          <a href="#" class="hover:text-white transition">Terms</a>
+          <a href="#" class="hover:text-white transition">Contact</a>
+        </div>
+        <div class="text-gray-500 text-sm">© 2026 Sessiono. Built with AI.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      content.classList.toggle('hidden');
+      icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+    function handleWaitlist(e) {
+      e.preventDefault();
+      const form = document.getElementById('waitlist-form');
+      form.innerHTML = '<div class="flex items-center justify-center gap-3 py-4 text-green-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-lg font-medium">You\'re on the list! We\'ll be in touch soon.</span></div>';
+    }
+  </script>
+</body>
+</html>
