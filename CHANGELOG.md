@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- ci: GitHubOrchestrator — fix Vercel deploy action reference `amonddev/vercel-action@v2` (repository not found) to `amondnet/vercel-action@v42`.
+
 ### Added
 - Revvel-standards documentation baseline for Sessiono
 - Product MVP direction and implementation roadmap in README
