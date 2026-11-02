@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - ci: GitHubOrchestrator — fix Vercel deploy action reference `amonddev/vercel-action@v2` (repository not found) to `amondnet/vercel-action@v42`.
+- ci: Make Vercel deploy workflow robust against runner migrations by pinning `ubuntu-latest` to `ubuntu-22.04`.
 
 ### Added
 - Revvel-standards documentation baseline for Sessiono
